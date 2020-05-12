@@ -2,6 +2,7 @@ package com.somvelisetty.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnSave,btnGetAllData;
+    private Button btnSave,btnGetAllData,btnTransition;
     private EditText edtName, edtPunchSpeed, edtPunchPower, edtKickSpeed, edtKickPower;
     private TextView txtGetDaata;
 
@@ -35,6 +36,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         btnSave.setOnClickListener(SignUp.this);
         txtGetDaata = findViewById(R.id.txtGetData);
         btnGetAllData = findViewById(R.id.btnGetAllData);
+        btnTransition = findViewById(R.id.btnNextActivity);
 
         edtName = findViewById(R.id.edtName);
         edtPunchSpeed = findViewById(R.id.edtPunchSpeed);
@@ -75,6 +77,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                         }
                     }
                 });
+            }
+        });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this, SignUpLoginActivity.class);
+                startActivity(intent);
             }
         });
     }
